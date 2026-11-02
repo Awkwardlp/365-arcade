@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0d0d10">
+  <title>365 Arcade - Modern Web Gaming &amp; 3D WebGL Showcase</title>
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="apple-touch-icon" href="assets/logo.png">
+
+  <!-- SEO Metadata -->
+  <meta name="description" content="Akses koleksi game arkade browser modern dan showcase grafis 3D WebGL Three.js. Cepat, interaktif, tanpa instalasi.">
+
+  <!-- Open Graph & Social Share -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="365 Arcade - Modern Web Gaming &amp; 3D WebGL Showcase">
+  <meta property="og:description" content="Koleksi game arkade klasik dan eksplorasi grafis 3D WebGL Three.js langsung di browser.">
+  <meta property="og:image" content="assets/logo.png">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="365 Arcade - Modern Web Gaming &amp; 3D WebGL Showcase">
+  <meta name="twitter:description" content="Koleksi game arkade klasik dan eksplorasi grafis 3D WebGL Three.js langsung di browser.">
+  <meta name="twitter:image" content="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Orbitron:wght@700;800;900&family=Outfit:wght@400;500;600;700&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=2.0">
+</head>
+<body>
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-to-content">Lewati ke konten utama</a>
+
+  <!-- Top Sticky Site Navbar -->
+  <header class="site-header" id="site-header">
+    <div class="site-header-inner">
+      <!-- Brand Logo -->
+      <a href="#hero" class="brand-link" aria-label="365 Arcade Beranda" onclick="window.Hub.navigateTo('home'); return false;">
+        <img src="assets/logo.png" alt="365 Arcade Logo" class="brand-icon-img">
+        <span class="brand-text">365 ARCADE</span>
+      </a>
+
+      <!-- Desktop Navigation Links (>= 1024px) -->
+      <nav class="desktop-nav" aria-label="Navigasi Utama">
+        <a href="#hero" class="nav-link active" data-nav="home" onclick="window.Hub.navigateTo('home'); return false;">Beranda</a>
+        <a href="#games-classic" class="nav-link" data-nav="classic" onclick="window.Hub.navigateTo('classic'); return false;">Game Klasik</a>
+        <a href="#games-3d" class="nav-link" data-nav="games-3d" onclick="window.Hub.navigateTo('games-3d'); return false;">3D Showcase</a>
+        <a href="#leaderboard" class="nav-link" data-nav="leaderboard" onclick="window.Hub.navigateTo('leaderboard'); return false;">Peringkat</a>
+        <a href="#faq" class="nav-link" data-nav="faq" onclick="window.Hub.navigateTo('faq'); return false;">FAQ</a>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="site-header-actions">
+        <!-- Search Input -->
+        <div class="header-search">
+          <svg class="search-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="header-search-input" placeholder="Cari game..." oninput="window.Hub.onSearch(this.value)" aria-label="Cari Game">
+        </div>
+
+        <!-- Player XP Pill -->
+        <div class="header-pill xp-pill" title="Level dan Total XP Pemain">
+          <span class="header-lvl-badge" id="header-player-level">LVL 1</span>
+          <span class="header-xp-val" id="topbar-xp">0 XP</span>
+        </div>
+
+        <!-- Audio FX Toggle -->
+        <button class="icon-btn" id="btn-audio" title="Audio FX" aria-label="Toggle Audio" onclick="window.Hub.toggleAudio()">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+        </button>
+
+        <!-- Achievements Button -->
+        <button class="icon-btn" id="btn-achievements" title="Pencapaian" aria-label="Buka Pencapaian" onclick="window.Hub.toggleAchievements()">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+            <path d="M4 22h16"></path>
+            <path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1h10v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path>
+            <path d="M6 4h12a2 2 0 0 1 2 2v3a8 8 0 0 1-16 0V6a2 2 0 0 1 2-2z"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Drawer Hamburger Toggle (< 1024px) -->
+        <button class="icon-btn mobile-menu-btn" id="btn-mobile-menu" title="Menu Navigasi" aria-label="Buka Menu Navigasi" onclick="window.Hub.toggleMobileDrawer(true)">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer & Backdrop Overlay (< 1024px) -->
+  <div class="drawer-overlay" id="drawer-overlay" onclick="window.Hub.toggleMobileDrawer(false)"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="brand-link">
+        <img src="assets/logo.png" alt="365 Arcade Logo" class="brand-icon-img">
+        <span class="brand-text">365 ARCADE</span>
+      </div>
+      <button class="icon-btn" aria-label="Tutup Menu" onclick="window.Hub.toggleMobileDrawer(false)">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="drawer-search">
+      <input type="text" placeholder="Cari game..." oninput="window.Hub.onSearch(this.value)" aria-label="Cari Game">
+    </div>
+
+    <nav class="drawer-nav" aria-label="Navigasi Mobile">
+      <a href="#hero" class="drawer-nav-item active" data-nav="home" onclick="window.Hub.navigateTo('home'); window.Hub.toggleMobileDrawer(false); return false;">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        Beranda
+      </a>
+      <a href="#games-classic" class="drawer-nav-item" data-nav="classic" onclick="window.Hub.navigateTo('classic'); window.Hub.toggleMobileDrawer(false); return false;">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"></polygon></svg>
+        Game Klasik
+      </a>
+      <a href="#games-3d" class="drawer-nav-item" data-nav="games-3d" onclick="window.Hub.navigateTo('games-3d'); window.Hub.toggleMobileDrawer(false); return false;">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+        3D Showcase
+      </a>
+      <a href="#leaderboard" class="drawer-nav-item" data-nav="leaderboard" onclick="window.Hub.navigateTo('leaderboard'); window.Hub.toggleMobileDrawer(false); return false;">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1h10v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path><path d="M6 4h12a2 2 0 0 1 2 2v3a8 8 0 0 1-16 0V6a2 2 0 0 1 2-2z"></path></svg>
+        Papan Peringkat
+      </a>
+      <a href="#faq" class="drawer-nav-item" data-nav="faq" onclick="window.Hub.navigateTo('faq'); window.Hub.toggleMobileDrawer(false); return false;">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        FAQ
+      </a>
+    </nav>
+
+    <div class="drawer-footer">
+      <div class="drawer-player-card card">
+        <div class="drawer-player-info">
+          <span class="badge badge-cyan" id="drawer-player-level">LVL 1</span>
+          <span class="drawer-player-xp" id="drawer-player-xp">0 XP</span>
+        </div>
+        <div class="xp-bar-track">
+          <div class="xp-bar-fill" id="drawer-xp-fill" style="width: 0%"></div>
+        </div>
+      </div>
+      <button class="btn btn-primary" style="width:100%;" onclick="window.Hub.toggleAchievements(); window.Hub.toggleMobileDrawer(false);">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1h10v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path><path d="M6 4h12a2 2 0 0 1 2 2v3a8 8 0 0 1-16 0V6a2 2 0 0 1 2-2z"></path></svg>
+        Pencapaian
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Website Body -->
+  <main class="site-main" id="main-content">
+
+    <!-- Interactive Game Stage (Revealed when playing any game) -->
+    <section class="game-stage-view hidden" id="game-view" aria-label="Panggung Game Aktif">
+      <div class="container">
+        <!-- Stage Top Bar -->
+        <div class="stage-nav-bar card">
+          <div class="stage-nav-left">
+            <button class="btn" onclick="window.Hub.backToHub()" title="Kembali ke Katalog">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              Kembali
+            </button>
+            <div class="stage-titles">
+              <span class="eyebrow">PANGGUNG GAME INTERAKTIF</span>
+              <h2 class="stage-title" id="stage-game-title">Nama Game</h2>
+            </div>
+          </div>
+          <div class="stage-nav-right">
+            <div class="stage-score-hud">
+              <span class="hud-label">REKOR LOKAL</span>
+              <strong class="hud-value" id="stage-best-score">-</strong>
+            </div>
+            <button class="btn" id="stage-restart-btn" onclick="window.Hub.restartActiveGame()" title="Ulangi Sesi [R]">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M1 4v6h6"></path>
+                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+              </svg>
+              Ulangi
+            </button>
+            <button class="btn" id="stage-fullscreen-btn" title="Layar Penuh [F]">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+              </svg>
+              Layar Penuh
+            </button>
+          </div>
+        </div>
+
+        <!-- Stage Canvas Play Area -->
+        <div class="game-stage-box card" id="game-canvas"></div>
+
+        <!-- Stage Options & Controls -->
+        <div class="stage-options card" id="game-options-panel"></div>
+
+        <!-- History Strip -->
+        <div class="stage-history card">
+          <div class="history-label">Riwayat Sesi Terakhir:</div>
+          <div class="history-chips" id="history-items"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hub Catalog View -->
+    <div class="hub-catalog-view" id="hub-view">
+
+      <!-- Hero Section -->
+      <section class="hero-section" id="hero">
+        <!-- Ambient Animated Background Elements -->
+        <div class="hero-bg-grid" aria-hidden="true"></div>
+        <div class="hero-bg-orb hero-orb-cyan" aria-hidden="true"></div>
+        <div class="hero-bg-orb hero-orb-purple" aria-hidden="true"></div>
+        <canvas class="hero-particles-canvas" id="hero-particles" aria-hidden="true"></canvas>
+
+        <div class="container hero-container">
+          <div class="hero-content">
+            <div class="hero-badge-wrap">
+              <span class="badge badge-pink">ARCADE 365</span>
+            </div>
+            <h1 class="hero-title">NEXT-GEN ARCADE <br class="hero-break"><span class="hero-highlight">WEB &amp; 3D</span></h1>
+            <p class="hero-desc">
+              Akses koleksi game arkade klasik dan eksplorasi grafis 3D WebGL Three.js langsung di browser tanpa unduhan. Cepat, interaktif, dan responsif di PC maupun smartphone.
+            </p>
+            <div class="hero-actions">
+              <a href="#games-classic" class="btn btn-primary btn-lg" onclick="window.Hub.navigateTo('classic'); return false;">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                Mainkan Game Klasik
+              </a>
+              <a href="#games-3d" class="btn btn-lg" onclick="window.Hub.navigateTo('games-3d'); return false;">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+                Jelajahi 3D Showcase
+              </a>
+            </div>
+            <div class="hero-stats-grid">
+              <div class="hero-stat-card card">
+                <span class="stat-num">16+</span>
+                <span class="stat-lbl">Game Aktif</span>
+              </div>
+              <div class="hero-stat-card card">
+                <span class="stat-num">60</span>
+                <span class="stat-lbl">FPS WebGL</span>
+              </div>
+              <div class="hero-stat-card card">
+                <span class="stat-num">0</span>
+                <span class="stat-lbl">Unduhan / Akun</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual" id="hero-visual">
+            <div class="hero-logo-interactive-wrap" id="hero-logo-wrap" title="365 Arcade Logo - Klik untuk interaksi">
+              <div class="hero-logo-glow" id="hero-logo-glow"></div>
+              <img src="assets/logo.png" alt="365 Arcade Logo" class="hero-logo-img-large" id="hero-logo-img">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Classic Web Arcade Games Section -->
+      <section class="section" id="games-classic">
+        <div class="container" id="minigames-section">
+          <div class="section-header">
+            <span class="eyebrow">Uji Ketangkasan Motorik &amp; Kognisi</span>
+            <h2 class="section-title">GAME ARCADE KLASIK</h2>
+            <p class="section-desc">
+              Delapan game arkade browser esensial untuk melatih kecepatan reaksi, koordinasi bidikan mouse, kecepatan klik kontinu, memori, dan ketangkasan kognitif.
+            </p>
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="filter-tabs-bar">
+            <button class="tab-btn active" data-category="all" onclick="window.Hub.filterCategory('all')">Semua Game</button>
+            <button class="tab-btn" data-category="reflex" onclick="window.Hub.filterCategory('reflex')">Refleks</button>
+            <button class="tab-btn" data-category="motoric" onclick="window.Hub.filterCategory('motoric')">Motorik</button>
+            <button class="tab-btn" data-category="cognition" onclick="window.Hub.filterCategory('cognition')">Kognisi</button>
+          </div>
+
+          <!-- Classic Games Grid -->
+          <div class="cards-grid" id="games-grid">
+            <!-- Game 1: Reaction Time -->
+            <article class="game-card card" data-category="reflex">
+              <div class="game-card-head">
+                <div class="game-icon-box">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                  </svg>
+                </div>
+                <div class="game-card-badges">
+                  <span class="badge badge-cyan">REFLEKS</span>
+                  <span class="best-score-chip" id="best-reaction">-</span>
+                </div>
+              </div>
+              <h3 class="card-title">Reaction Time</h3>
+              <p class="card-desc">
+                Uji kecepatan respon saraf visual terhadap warna layar. Klik segera begitu panel merah berubah menjadi hijau solid.
+              </p>
+              <div class="game-card-footer">
+                <span class="xp-reward">+25 XP</span>
+                <button class="btn btn-primary" onclick="window.Hub.startGame('reaction')">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  Mainkan
+                </button>
+              </div>
+            </article>
+
+            <!-- Game 2: Aim Trainer -->
+            <article class="game-card card" data-category="motoric">
+              <div class="game-card-head">
+                <div class="game-icon-box">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <circle cx="12" cy="12" r="6"></circle>
+                    <circle cx="12" cy="12" r="2"></circle>
+                  </svg>
+                </div>
+                <div class="game-card-badges">
+                  <span class="badge badge-cyan">MOTORIK</span>
+                  <span class="best-score-chip" id="best-aim">-</span>
+                </div>
+              </div>
+              <h3 class="card-title">Aim Trainer</h3>
+              <p class="card-desc">
+                Asah presisi dan koordinasi tangan-mata dengan mengeklik 5 target acak yang muncul berturut-turut secepat mungkin.
+              </p>
+              <div class="game-card-footer">
+                <span class="xp-reward">+25 XP</span>
+                <button class="btn btn-primary" onclick="window.Hub.startGame('aim')">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  Mainkan
+                </button>
+              </div>
+            </article>
+
+            <!-- Game 3: CPS Speed -->
+            <article class="game-card card" data-category="motoric">
+              <div class="game-card-head">
+                <div class="game-icon-box">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </div>
+                <div class="game-card-badges">
+                  <span class="badge badge-cyan">MOTORIK</span>
+                  <span class="best-score-chip" id="best-cps">-</span>
+                </div>
+              </div>
+              <h3 class="card-title">Click Speed (CPS)</h3>
+              <p class="card-desc">
+                Kalkulasi frekuensi ketukan jari per detik selama 5 detik penuh dengan visualisasi live counter dan feedback instan.
+              </p>
+              <div class="game-card-footer">
+                <span class="xp-reward">+25 XP</span>
+                <button class="btn btn-primary" onclick="window.Hub.startGame('cps')">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  Mainkan
+                </button>
+              </div>
+            </article>
+
+            <!-- Game 4: Number Guesser -->
+            <article class="game-card card" data-category="cognition">
+              <div class="game-card-head">
+                <div class="game-icon-box">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path>
+                    <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path>
+                  </svg>
+                </div>
+                <div class="game-card-badges">
+                  <span class="badge badge-cyan">KOGNISI</span>
+                  <span class="best-score-chip" id="best-guess">-</span>
+                </div>
+              </div>
+              <h3 class="card-title">Tebak Angka Biner</h3>
+              <p class="card-desc">
+                Tebak angka acak tersembunyi dengan panduan termometer temperatur kedekatan logika dari membeku sampai mendidih.
+              </p>
+              <div class="game-card-footer">
+                <span class="xp-reward">+25 XP</span>
+                <button class="btn btn-primary" onclick="window.Hub.startGame('guess')">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  Mainkan
+                </button>
+              </div>
+            </article>
+
+            <!-- Game 5: Memory Match -->
+            <article class="game-card card" data-category="cognition">
+              <div class="game-card-head">
+                <div class="game-icon-box">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                </div>
+                <div class="game-card-badges">
+                  <span class="badge badge-cyan">KOGNISI</span>
+                  <span class="best-score-chip" id="best-memory">-</span>
+                </div>
+              </div>
+              <h3 class="card-title">Memory Match</h3>
+              <p class="card-desc">
+                Temukan dan pasangkan 8 pasang kartu simbol SVG geometris acak dalam waktu minimal dan langkah paling efisien.
+              </p>
+              <div class="game-card-footer">
+                <span class="xp-reward">+25 XP</span>
+                <button class="btn btn-primary" onclick="window.Hub.startGame('memory')">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  Mainkan
+                </button>
+              </div>
+            </article>
+
+            <!-- Game 6: Typing Speed -->
+            <article class="game-card card" data-category="motoric">
+              <div class="game-card-head">
+                <div class="game-icon-box">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
+                    <line x1="6" y1="8" x2="6" y2="8"></line>
+                    <line x1="10" y1="8" x2="10" y2="8"></line>
+                    <line x1="14" y1="8" x2="14" y2="8"></line>
+                    <line x1="18" y1="8" x2="18" y2="8"></line>
+                    <line x1="6" y1="12" x2="6" y2="12"></line>
+                    <line x1="10" y1="12" x2="10" y2="12"></line>
+                    <line x1="14" y1="12" x2="14" y2="12"></line>
+                    <line x1="18" y1="12" x2="18" y2="12"></line>
+                    <line x1="7" y1="16" x2="17" y2="16"></line>
+                  </svg>
+                </div>
+                <div class="game-card-badges">
+                  <span class="badge badge-cyan">MOTORIK</span>
+                  <span class="best-score-chip" id="best-typing">-</span>
+                </div>
+              </div>
+              <h3 class="card-title">Typing Speed</h3>
+              <p class="card-desc">
+                Uji kecepatan dan akurasi jemari mengetik kata bahasa pemrograman dan istilah arcade secara akurat dalam batasan waktu.
+              </p>
+              <div class="game-card-footer">
+                <span class="xp-reward">+25 XP</span>
+                <button class="btn btn-primary" onclick="window.Hub.startGame('typing')">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  Mainkan
+                </button>
+              </div>
+            </article>
+
+            <!-- Game 7: Color Match (Stroop) -->
+            <article class="game-card card" data-category="cognition">
+              <div class="game-card-head">
+                <div class="game-icon-box">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 2a10 10 0 0 1 0 20z" fill="currentColor" opacity="0.3"></path>
+                  </svg>
+                </div>
+                <div class="game-card-badges">
+                  <span class="badge badge-cyan">KOGNISI</span>
+                  <span class="best-score-chip" id="best-stroop">-</span>
+                </div>
+              </div>
+              <h3 class="card-title">Color Match (Stroop)</h3>
+              <p class="card-desc">
+                Tantangan efek interferensi Stroop. Tentukan kecocokan antara nama warna teks dan warna tinta aktual secepat mungkin.
+              </p>
+              <div class="game-card-footer">
+                <span class="xp-reward">+25 XP</span>
+                <button class="btn btn-primary" onclick="window.Hub.startGame('stroop')">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  Mainkan
+                </button>
+              </div>
+            </article>
+
+            <!-- Game 8: Sequence Memory -->
+            <article class="game-card card" data-category="cognition">
+              <div class="game-card-head">
+                <div class="game-icon-box">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                  </svg>
+                </div>
+                <div class="game-card-badges">
+                  <span class="badge badge-cyan">KOGNISI</span>
+                  <span class="best-score-chip" id="best-sequence">-</span>
+                </div>
+              </div>
+              <h3 class="card-title">Sequence Memory</h3>
+              <p class="card-desc">
+                Ikuti dan hafalkan urutan tombol kisi 3x3 yang menyala dengan nada suara. Level semakin panjang seiring kemajuanmu.
+              </p>
+              <div class="game-card-footer">
+                <span class="xp-reward">+25 XP</span>
+                <button class="btn btn-primary" onclick="window.Hub.startGame('sequence')">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  Mainkan
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3D & Advanced Games Showcase Section (Alternating background: var(--bg-section-alt)) -->
+      <section class="section section-alt" id="games-3d">
+        <div class="container" id="advanced-section">
+          <div class="section-header">
+            <span class="eyebrow">Grafis Web Generasi Baru</span>
+            <h2 class="section-title">SHOWCASE 3D &amp; OPEN SOURCE</h2>
+            <p class="section-desc">
+              Kompilasi game 3D WebGL Three.js dan platformer arcade pilihan komunitas pengembang global. Dilengkapi screenshot gameplay nyata dari demo aktif.
+            </p>
+          </div>
+
+          <!-- 3D Category Filter Tabs -->
+          <div class="filter-tabs-bar" id="adv-filter-tabs">
+            <button class="tab-btn active" data-adv="all" onclick="window.Hub.filterAdvCategory('all')">Semua Game</button>
+            <button class="tab-btn" data-adv="3d" onclick="window.Hub.filterAdvCategory('3d')">3D &amp; WebGL</button>
+            <button class="tab-btn" data-adv="arcade" onclick="window.Hub.filterAdvCategory('arcade')">Arcade &amp; Aksi</button>
+          </div>
+
+          <!-- Dynamic 3D Grid populated by app.js with real gameplay screenshots -->
+          <div class="adv-cards-grid" id="adv-games-grid"></div>
+        </div>
+      </section>
+
+      <!-- Leaderboard & Statistics Section -->
+      <section class="section" id="leaderboard">
+        <div class="container" id="leaderboard-section">
+          <div class="section-header">
+            <span class="eyebrow">Kompetisi &amp; Statistik Kemajuan</span>
+            <h2 class="section-title">PAPAN PERINGKAT &amp; PROFIL</h2>
+            <p class="section-desc">
+              Pantau peringkatmu terhadap benchmark gamer terbaik dan periksa riwayat perolehan XP akun lokal secara transparan.
+            </p>
+          </div>
+
+          <!-- Game Tabs for Leaderboard -->
+          <div class="filter-tabs-bar board-tabs-scroll" id="board-game-tabs">
+            <button class="tab-btn segment-btn active" data-board="reaction" onclick="window.Hub.switchLeaderboard('reaction')">Reaction Time</button>
+            <button class="tab-btn segment-btn" data-board="aim" onclick="window.Hub.switchLeaderboard('aim')">Aim Trainer</button>
+            <button class="tab-btn segment-btn" data-board="cps" onclick="window.Hub.switchLeaderboard('cps')">Click Speed</button>
+            <button class="tab-btn segment-btn" data-board="guess" onclick="window.Hub.switchLeaderboard('guess')">Tebak Angka</button>
+            <button class="tab-btn segment-btn" data-board="memory" onclick="window.Hub.switchLeaderboard('memory')">Memory Match</button>
+            <button class="tab-btn segment-btn" data-board="typing" onclick="window.Hub.switchLeaderboard('typing')">Typing Speed</button>
+            <button class="tab-btn segment-btn" data-board="stroop" onclick="window.Hub.switchLeaderboard('stroop')">Color Match</button>
+            <button class="tab-btn segment-btn" data-board="sequence" onclick="window.Hub.switchLeaderboard('sequence')">Sequence Memory</button>
+          </div>
+
+          <!-- Leaderboard Layout: Rank Table (Left) + Player Progression Card (Right) -->
+          <div class="leaderboard-grid">
+            <div class="leaderboard-table-card card">
+              <div class="table-card-head">
+                <div class="table-head-info">
+                  <span class="table-title">PERINGKAT GLOBAL &amp; LOKAL</span>
+                  <span class="board-mode-pill" id="board-active-mode-title">Reaction Time</span>
+                </div>
+                <span class="badge badge-cyan">BENCHMARK 2026</span>
+              </div>
+
+              <!-- Esports Column Headers -->
+              <div class="board-col-headers" aria-hidden="true">
+                <span class="col-th col-rank">RANK</span>
+                <span class="col-th col-player">PEMAIN / BENCHMARK</span>
+                <span class="col-th col-score">SKOR TERBAIK</span>
+                <span class="col-th col-precision">STATUS EVALUASI</span>
+              </div>
+
+              <div class="leaderboard-rows" id="leaderboard-rows"></div>
+
+              <!-- Dynamic Player Action / Status Callout -->
+              <div class="board-callout" id="board-user-callout"></div>
+            </div>
+
+            <div class="player-profile-card card">
+              <div class="profile-card-head">
+                <span class="profile-title">KARTU ID PEMAIN</span>
+                <span class="badge badge-advanced" id="player-level">LVL 1</span>
+              </div>
+
+              <!-- Player Avatar & Rank Title HUD -->
+              <div class="profile-hero-badge">
+                <div class="profile-avatar-box">
+                  <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4 11a8 8 0 0 1 16 0v2"></path>
+                    <rect x="2.5" y="11" width="3" height="5" rx="1.5" fill="currentColor" fill-opacity="0.25"></rect>
+                    <rect x="18.5" y="11" width="3" height="5" rx="1.5" fill="currentColor" fill-opacity="0.25"></rect>
+                    <circle cx="12" cy="11.5" r="4.8"></circle>
+                    <path d="M8.5 11.5h7" stroke-width="2"></path>
+                    <path d="M6 21v-1a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v1"></path>
+                  </svg>
+                  <span class="avatar-status-dot" title="Status: Online"></span>
+                </div>
+                <div class="profile-title-group">
+                  <span class="profile-player-name">PEMAIN LOKAL</span>
+                  <span class="profile-rank-title" id="player-rank-title">ROOKIE CADET</span>
+                </div>
+              </div>
+
+              <!-- XP Progress HUD -->
+              <div class="profile-xp-section">
+                <div class="profile-xp-row">
+                  <span class="xp-label">Kemajuan Level:</span>
+                  <strong class="xp-val" id="player-xp-ratio">0 / 100 XP</strong>
+                </div>
+                <div class="xp-bar-track">
+                  <div class="xp-bar-fill" id="xp-bar-fill" style="width: 0%"></div>
+                </div>
+              </div>
+
+              <!-- 3-Cell Matrix Grid -->
+              <div class="profile-matrix-grid">
+                <div class="matrix-cell">
+                  <span class="matrix-lbl">TOTAL XP</span>
+                  <span class="matrix-val" id="player-xp">0 XP</span>
+                </div>
+                <div class="matrix-cell">
+                  <span class="matrix-lbl">MODE AKTIF</span>
+                  <span class="matrix-val" id="player-games-count">0 / 8</span>
+                </div>
+                <div class="matrix-cell">
+                  <span class="matrix-lbl">BEST RANK</span>
+                  <span class="matrix-val" id="player-best-rank">-</span>
+                </div>
+              </div>
+
+              <div class="profile-achieve-box">
+                <div class="achieve-count-row">
+                  <span>Pencapaian Terbuka:</span>
+                  <strong id="achieve-count">0 / 6</strong>
+                </div>
+                <button class="btn btn-primary" style="width:100%; margin-top:12px;" onclick="window.Hub.toggleAchievements()">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                    <path d="M4 22h16"></path>
+                    <path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1h10v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path>
+                    <path d="M6 4h12a2 2 0 0 1 2 2v3a8 8 0 0 1-16 0V6a2 2 0 0 1 2-2z"></path>
+                  </svg>
+                  Lihat Semua Pencapaian
+                </button>
+              </div>
+
+              <div class="profile-reset-row">
+                <button class="btn btn-sm btn-danger" onclick="window.Hub.resetAllData()">
+                  Reset Data &amp; Rekor Lokal
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section (Accordion with aria-expanded & rotating chevron) -->
+      <section class="section section-alt" id="faq">
+        <div class="container">
+          <div class="section-header">
+            <span class="eyebrow">Pusat Informasi &amp; Jawaban Cepat</span>
+            <h2 class="section-title">PERTANYAAN UMUM (FAQ)</h2>
+            <p class="section-desc">
+              Informasi teknis seputar arsitektur website, performa WebGL di desktop dan Android, serta penyimpanan rekor pemain.
+            </p>
+          </div>
+
+          <div class="faq-accordion-list">
+            <!-- FAQ 1 -->
+            <div class="faq-item card">
+              <button class="faq-trigger" aria-expanded="false" onclick="window.Hub.toggleFaq(this)">
+                <span class="faq-question">Apakah semua game di 365 Arcade gratis dimainkan tanpa unduhan?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Ya, 100% gratis dan berjalan seketika di peramban web modern tanpa perlu registrasi, login, atau unduhan file aplikasi. Seluruh aset dimuat langsung secara efisien melalui HTML5 Canvas, WebGL2, dan Web Audio API.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item card">
+              <button class="faq-trigger" aria-expanded="false" onclick="window.Hub.toggleFaq(this)">
+                <span class="faq-question">Apakah game mendukung kontrol layar sentuh di HP Android?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Ya. Seluruh antarmuka website dan mini-game dirancang dengan touch target standar minimal 44x44px. Game klasik seperti Reaction Time, Aim Trainer, CPS Clicker, Tebak Angka, dan Memory Match mendukung ketukan jari di layar sentuh tanpa latensi. Untuk game 3D tertentu seperti FPS, mouse dan keyboard direkomendasikan untuk pengalaman optimal.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item card">
+              <button class="faq-trigger" aria-expanded="false" onclick="window.Hub.toggleFaq(this)">
+                <span class="faq-question">Bagaimana sistem Level, Rekor Terbaik, dan XP disimpan?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Data pemain disimpan secara aman di peramban lokal perangkat menggunakan Web LocalStorage API. Setiap sesi permainan menambahkan XP dan memperbarui rekor terbaik secara otomatis tanpa mengirim data pribadi ke server eksternal.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="faq-item card">
+              <button class="faq-trigger" aria-expanded="false" onclick="window.Hub.toggleFaq(this)">
+                <span class="faq-question">Mengapa game 3D berjalan cepat dan mulus di browser?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Game 3D memanfaatkan akselerasi perangkat keras GPU melalui WebGL2 dan pustaka Three.js berbobot ringan. Kalkulasi geometri dan shader diproses langsung oleh kartu grafis perangkat sehingga dapat mempertahankan frame rate stabil 60 FPS.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="faq-item card">
+              <button class="faq-trigger" aria-expanded="false" onclick="window.Hub.toggleFaq(this)">
+                <span class="faq-question">Apakah 365 Arcade melacak privasi atau memasang iklan pelacak?</span>
+                <span class="faq-chevron" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Sama sekali tidak. Tidak ada cookie pelacak pihak ketiga, tidak ada skrip analitik invasif, dan tidak ada iklan pop-up yang mengganggu interaksi bermain.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /hub-view -->
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand Info -->
+        <div class="footer-col brand-col">
+          <div class="footer-brand">
+            <img src="assets/logo.png" alt="365 Arcade Logo" class="brand-icon-img">
+            <span class="brand-text">365 ARCADE</span>
+          </div>
+          <p class="footer-about">
+            Platform hiburan web modern dengan game arkade kognitif dan showcase teknologi 3D WebGL generasi baru. Akses instan setiap hari sepanjang tahun.
+          </p>
+          <div class="footer-status-pill">
+            <span class="status-dot"></span>
+            <span>STATUS SISTEM: NORMAL 60 FPS</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Navigasi Utama</h4>
+          <ul class="footer-links">
+            <li><a href="#hero" onclick="window.Hub.navigateTo('home'); return false;">Beranda</a></li>
+            <li><a href="#games-classic" onclick="window.Hub.navigateTo('classic'); return false;">Game Klasik</a></li>
+            <li><a href="#games-3d" onclick="window.Hub.navigateTo('games-3d'); return false;">3D Showcase</a></li>
+            <li><a href="#leaderboard" onclick="window.Hub.navigateTo('leaderboard'); return false;">Papan Peringkat</a></li>
+            <li><a href="#faq" onclick="window.Hub.navigateTo('faq'); return false;">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Tech Specs -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Teknologi Web</h4>
+          <ul class="footer-links">
+            <li><span>Three.js / WebGL2</span></li>
+            <li><span>HTML5 Canvas 2D</span></li>
+            <li><span>Web Audio Synthesizer</span></li>
+            <li><span>LocalStorage Storage</span></li>
+            <li><span>Dimensional Flat CSS</span></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Platform Guarantee -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Standar Kualitas</h4>
+          <ul class="footer-links">
+            <li><span>Zero Unicode Emoji (SVG Only)</span></li>
+            <li><span>Responsive PC &amp; Android</span></li>
+            <li><span>Touch Target 44px Standar</span></li>
+            <li><span>Aksesibilitas Kontras Tinggi</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <p class="copyright-text">&copy; 2026 365 Arcade. Seluruh hak cipta dilindungi undang-undang.</p>
+        <p class="disclaimer-text">Semua judul game 3D open-source dilindungi oleh lisensi pengembang masing-masing (MIT / Apache / Open Web).</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Achievements Dialog Modal -->
+  <dialog class="modal-dialog card" id="achievements-dialog">
+    <div class="modal-header">
+      <div class="modal-title-wrap">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+          <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+          <path d="M4 22h16"></path>
+          <path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1h10v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path>
+          <path d="M6 4h12a2 2 0 0 1 2 2v3a8 8 0 0 1-16 0V6a2 2 0 0 1 2-2z"></path>
+        </svg>
+        <h3>Daftar Pencapaian Pemain</h3>
+      </div>
+      <button type="button" class="icon-btn" aria-label="Tutup Dialog" onclick="window.Hub.toggleAchievements()">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="modal-body" id="achievements-list"></div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" onclick="window.Hub.toggleAchievements()">Tutup</button>
+    </div>
+  </dialog>
+
+  <!-- Advanced Game Modal -->
+  <dialog class="modal-dialog card" id="adv-game-dialog">
+    <div class="modal-header">
+      <div class="modal-title-wrap">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+        <h3 id="adv-modal-title">Detail Game</h3>
+      </div>
+      <button type="button" class="icon-btn" aria-label="Tutup Modal" onclick="window.Hub.closeAdvModal()">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="modal-body" id="adv-modal-body"></div>
+    <div class="modal-footer" id="adv-modal-footer"></div>
+  </dialog>
+
+  <!-- Animation Engine (GSAP & ScrollTrigger) -->
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+
+  <!-- Core JavaScript -->
+  <script src="app.js?v=2.0"></script>
+</body>
+</html>

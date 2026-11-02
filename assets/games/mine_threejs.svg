@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="mine_sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E3A8A"/>
+      <stop offset="60%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#60A5FA"/>
+    </linearGradient>
+    <filter id="voxel_shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <rect width="600" height="340" fill="#0B132B"/>
+  <rect width="600" height="240" fill="url(#mine_sky)" opacity="0.85"/>
+  <!-- Voxel Sun -->
+  <rect x="460" y="30" width="50" height="50" fill="#FDE047"/>
+  <!-- Isometric Voxel Blocks -->
+  <!-- Block 1 (Center Front) -->
+  <g transform="translate(300, 150)" filter="url(#voxel_shadow)">
+    <!-- Top Face (Grass) -->
+    <polygon points="0,-40 60,-10 0,20 -60,-10" fill="#22C55E"/>
+    <!-- Left Face (Dirt) -->
+    <polygon points="-60,-10 0,20 0,85 -60,55" fill="#78350F"/>
+    <!-- Right Face (Dirt Shaded) -->
+    <polygon points="0,20 60,-10 60,55 0,85" fill="#451A03"/>
+    <!-- Green Grass overhang edge -->
+    <polygon points="-60,-10 0,20 0,28 -60,-2" fill="#15803D"/>
+    <polygon points="0,20 60,-10 60,-2 0,28" fill="#166534"/>
+  </g>
+  <!-- Block 2 (Left) -->
+  <g transform="translate(240, 185)">
+    <polygon points="0,-40 60,-10 0,20 -60,-10" fill="#22C55E"/>
+    <polygon points="-60,-10 0,20 0,85 -60,55" fill="#78350F"/>
+    <polygon points="0,20 60,-10 60,55 0,85" fill="#451A03"/>
+  </g>
+  <!-- Block 3 (Right Stone) -->
+  <g transform="translate(360, 185)">
+    <polygon points="0,-40 60,-10 0,20 -60,-10" fill="#94A3B8"/>
+    <polygon points="-60,-10 0,20 0,85 -60,55" fill="#64748B"/>
+    <polygon points="0,20 60,-10 60,55 0,85" fill="#475569"/>
+  </g>
+  <!-- Pickaxe tool -->
+  <g transform="translate(140, 120) rotate(-35)">
+    <rect x="-6" y="-30" width="12" height="110" rx="3" fill="#D97706"/>
+    <path d="M -40 -35 Q 0 -50 40 -35 L 35 -20 Q 0 -35 -35 -20 Z" fill="#94A3B8" stroke="#334155" stroke-width="2"/>
+  </g>
+  <!-- Text HUD -->
+  <text x="300" y="295" font-family="'Oxanium', sans-serif" font-size="16" font-weight="700" fill="#F3F4F6" text-anchor="middle" letter-spacing="4">MINETHREEJS VOXEL SANDBOX</text>
+  <text x="300" y="318" font-family="'Oxanium', sans-serif" font-size="11" font-weight="600" fill="#22C55E" text-anchor="middle" letter-spacing="2">PROCEDURAL VOXEL WORLD IN BROWSER</text>
+</svg>

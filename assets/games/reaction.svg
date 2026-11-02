@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 338" width="100%" height="100%">
+  <rect width="600" height="338" fill="#0f0f12"/>
+  <!-- Hairline tactical grid -->
+  <defs>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#2b2c32" stroke-width="0.75"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="338" fill="url(#grid)" opacity="0.6"/>
+  <!-- Tactical frame border -->
+  <rect x="12" y="12" width="576" height="314" rx="6" fill="none" stroke="#2b2c32" stroke-width="1"/>
+  <!-- Corner ticks -->
+  <path d="M 20 32 L 20 20 L 32 20 M 580 32 L 580 20 L 568 20 M 20 306 L 20 318 L 32 318 M 580 306 L 580 318 L 568 318" fill="none" stroke="#00e5ff" stroke-width="2"/>
+  
+  <!-- Header meta -->
+  <text x="36" y="44" fill="#00e5ff" font-family="Montserrat, Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="2">SYS.REFLEX // SENSOR_01</text>
+  <text x="564" y="44" text-anchor="end" fill="#8d8f97" font-family="Montserrat, Inter, sans-serif" font-size="10" font-weight="600" letter-spacing="1">1000 HZ POLLING</text>
+  
+  <!-- Center Chrono Visualizer -->
+  <circle cx="300" cy="165" r="76" fill="#17181c" stroke="#2b2c32" stroke-width="1.5"/>
+  <circle cx="300" cy="165" r="68" fill="none" stroke="rgba(0, 229, 255, 0.25)" stroke-width="1" stroke-dasharray="4 4"/>
+  <circle cx="300" cy="165" r="54" fill="rgba(0, 229, 255, 0.08)" stroke="#00d9f5" stroke-width="1.5"/>
+  
+  <!-- Lightning Glyph -->
+  <path d="M 304 125 L 284 163 L 299 163 L 294 205 L 318 159 L 303 159 Z" fill="#00e5ff"/>
+  
+  <!-- Waveform lines below -->
+  <path d="M 120 265 L 220 265 L 235 240 L 250 285 L 265 255 L 280 265 L 320 265 L 335 230 L 350 295 L 365 265 L 480 265" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.8"/>
+  <circle cx="250" cy="285" r="3" fill="#00e5ff"/>
+  <circle cx="350" cy="295" r="3" fill="#00e5ff"/>
+
+  <!-- Footer Tag -->
+  <rect x="235" y="295" width="130" height="20" rx="3" fill="#17181c" stroke="#2b2c32"/>
+  <text x="300" y="309" text-anchor="middle" fill="#00e5ff" font-family="Montserrat, Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5">LATENCY BENCHMARK</text>
+</svg>

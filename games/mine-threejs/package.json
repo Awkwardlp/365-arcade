@@ -1,0 +1,17 @@
+{
+  "name": "minecraft-threejs",
+  "version": "1.0.0",
+  "description": "A Minecraft-like game built with Three.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "simplex-noise": "^4.0.3",
+    "three": "^0.152.2"
+  },
+  "devDependencies": {
+    "vite": "^4.3.9"
+  }
+}

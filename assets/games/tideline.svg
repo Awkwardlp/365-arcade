@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="tide_sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#022C43"/>
+      <stop offset="50%" stop-color="#053F5C"/>
+      <stop offset="100%" stop-color="#429EBD"/>
+    </linearGradient>
+    <linearGradient id="tide_ocean" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#023E8A"/>
+      <stop offset="50%" stop-color="#0077B6"/>
+      <stop offset="100%" stop-color="#03045E"/>
+    </linearGradient>
+    <filter id="ocean_glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="600" height="340" fill="#03045E"/>
+  <rect width="600" height="170" fill="url(#tide_sky)"/>
+  <!-- Horizon Moon -->
+  <circle cx="300" cy="90" r="32" fill="#E0F2FE" filter="url(#ocean_glow)"/>
+  <!-- Ocean WebGL Wave Mesh Surface -->
+  <path d="M 0 170 Q 100 155 200 170 T 400 170 T 600 170 L 600 270 L 0 270 Z" fill="url(#tide_ocean)"/>
+  <path d="M 0 190 Q 80 175 180 190 T 380 190 T 600 190 L 600 270 L 0 270 Z" fill="#0077B6" opacity="0.7"/>
+  <path d="M 0 215 Q 120 200 240 215 T 480 215 T 600 215 L 600 270 L 0 270 Z" fill="#023E8A" opacity="0.85"/>
+  <!-- 3D Maritime Sailing Boat -->
+  <g transform="translate(300, 160)">
+    <!-- Boat Hull -->
+    <polygon points="-50,15 50,15 35,35 -35,35" fill="#FFFFFF" stroke="#0F172A" stroke-width="2"/>
+    <rect x="-4" y="-55" width="8" height="70" fill="#94A3B8"/>
+    <!-- Sail -->
+    <polygon points="4,-50 42,-5 4,-5" fill="#38BDF8" opacity="0.9"/>
+    <polygon points="-4,-45 -35,-5 -4,-5" fill="#E0F2FE" opacity="0.8"/>
+  </g>
+  <!-- Label -->
+  <text x="300" y="295" font-family="'Oxanium', sans-serif" font-size="16" font-weight="700" fill="#F3F4F6" text-anchor="middle" letter-spacing="4">TIDELINE MARITIME ADVENTURE</text>
+  <text x="300" y="318" font-family="'Oxanium', sans-serif" font-size="11" font-weight="600" fill="#38BDF8" text-anchor="middle" letter-spacing="2">WEBGL 3D OCEAN WAVE SIMULATION</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="fps_sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#78350F"/>
+      <stop offset="50%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#FDE68A"/>
+    </linearGradient>
+    <linearGradient id="sand_dune" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B45309"/>
+      <stop offset="50%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#92400E"/>
+    </linearGradient>
+    <filter id="fps_glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="600" height="340" fill="#180D05"/>
+  <rect width="600" height="180" fill="url(#fps_sky)"/>
+  <!-- Blazing Sun -->
+  <circle cx="300" cy="110" r="45" fill="#FEF08A" filter="url(#fps_glow)"/>
+  <!-- Sand Dunes -->
+  <path d="M 0 170 Q 150 130 320 175 Q 460 210 600 160 L 600 270 L 0 270 Z" fill="url(#sand_dune)"/>
+  <path d="M 0 210 Q 180 180 340 220 Q 480 250 600 210 L 600 270 L 0 270 Z" fill="#78350F"/>
+  <!-- FPS Gun Sight Crosshair -->
+  <circle cx="300" cy="150" r="28" fill="none" stroke="#22C55E" stroke-width="2" filter="url(#fps_glow)"/>
+  <circle cx="300" cy="150" r="4" fill="#EF4444"/>
+  <line x1="300" y1="110" x2="300" y2="135" stroke="#22C55E" stroke-width="2"/>
+  <line x1="300" y1="165" x2="300" y2="190" stroke="#22C55E" stroke-width="2"/>
+  <line x1="260" y1="150" x2="285" y2="150" stroke="#22C55E" stroke-width="2"/>
+  <line x1="315" y1="150" x2="340" y2="150" stroke="#22C55E" stroke-width="2"/>
+  <!-- First person weapon silhouette -->
+  <polygon points="340,270 380,210 420,205 440,270" fill="#1E293B" stroke="#334155" stroke-width="2"/>
+  <rect x="365" y="195" width="25" height="15" rx="3" fill="#0F172A"/>
+  <!-- Label -->
+  <text x="300" y="295" font-family="'Oxanium', sans-serif" font-size="16" font-weight="700" fill="#F3F4F6" text-anchor="middle" letter-spacing="4">SANDLINE THREEJS FPS</text>
+  <text x="300" y="318" font-family="'Oxanium', sans-serif" font-size="11" font-weight="600" fill="#F59E0B" text-anchor="middle" letter-spacing="2">3D DESERT COMBAT &amp; POINTER LOCK</text>
+</svg>

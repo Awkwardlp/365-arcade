@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="jump_bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E1B4B"/>
+      <stop offset="60%" stop-color="#312E81"/>
+      <stop offset="100%" stop-color="#4C1D95"/>
+    </linearGradient>
+    <filter id="jump_glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="600" height="340" fill="url(#jump_bg)"/>
+  <!-- Stars in sky -->
+  <g fill="#FDE047">
+    <rect x="80" y="40" width="4" height="4"/>
+    <rect x="180" y="80" width="4" height="4"/>
+    <rect x="420" y="50" width="4" height="4"/>
+    <rect x="520" y="90" width="4" height="4"/>
+    <rect x="260" y="30" width="4" height="4"/>
+    <rect x="340" y="60" width="4" height="4"/>
+  </g>
+  <!-- Pixel Platforms (Stepping stones) -->
+  <rect x="230" y="240" width="140" height="16" rx="3" fill="#22C55E" stroke="#15803D" stroke-width="2"/>
+  <rect x="140" y="180" width="110" height="16" rx="3" fill="#3B82F6" stroke="#1D4ED8" stroke-width="2"/>
+  <rect x="350" y="140" width="110" height="16" rx="3" fill="#F59E0B" stroke="#B45309" stroke-width="2"/>
+  <rect x="220" y="90" width="120" height="16" rx="3" fill="#EC4899" stroke="#BE185D" stroke-width="2"/>
+  <!-- Pixel Character jumping -->
+  <g transform="translate(300, 50)" filter="url(#jump_glow)">
+    <rect x="-12" y="-12" width="24" height="24" rx="4" fill="#FDE047"/>
+    <rect x="-6" y="-6" width="4" height="4" fill="#000000"/>
+    <rect x="2" y="-6" width="4" height="4" fill="#000000"/>
+    <rect x="-4" y="2" width="8" height="3" fill="#E11D48"/>
+    <!-- Jetpack flame -->
+    <polygon points="-8,12 8,12 0,26" fill="#F43F5E"/>
+    <polygon points="-4,12 4,12 0,20" fill="#FFE600"/>
+  </g>
+  <!-- Label -->
+  <text x="300" y="295" font-family="'Oxanium', sans-serif" font-size="16" font-weight="700" fill="#F3F4F6" text-anchor="middle" letter-spacing="4">PIXEL JUMPER ARCADE ODYSSEY</text>
+  <text x="300" y="318" font-family="'Oxanium', sans-serif" font-size="11" font-weight="600" fill="#FDE047" text-anchor="middle" letter-spacing="2">VERTICAL PLATFORM COMBO ACTION</text>
+</svg>

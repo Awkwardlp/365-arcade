@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 338" width="100%" height="100%">
+  <rect width="600" height="338" fill="#0f0f12"/>
+  <defs>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#2b2c32" stroke-width="0.75"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="338" fill="url(#grid)" opacity="0.6"/>
+  <rect x="12" y="12" width="576" height="314" rx="6" fill="none" stroke="#2b2c32" stroke-width="1"/>
+  <path d="M 20 32 L 20 20 L 32 20 M 580 32 L 580 20 L 568 20 M 20 306 L 20 318 L 32 318 M 580 306 L 580 318 L 568 318" fill="none" stroke="#00e5ff" stroke-width="2"/>
+  
+  <text x="36" y="44" fill="#00e5ff" font-family="Montserrat, Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="2">SYS.DEDUCTION // GUESS_04</text>
+  <text x="564" y="44" text-anchor="end" fill="#8d8f97" font-family="Montserrat, Inter, sans-serif" font-size="10" font-weight="600" letter-spacing="1">BINARY RANGE [1..100]</text>
+  
+  <!-- Digital Number Terminal Display -->
+  <rect x="180" y="80" width="240" height="110" rx="8" fill="#17181c" stroke="#2b2c32" stroke-width="1.5"/>
+  <rect x="190" y="90" width="220" height="90" rx="6" fill="rgba(0, 229, 255, 0.05)" stroke="#00d9f5" stroke-width="1.5"/>
+  <text x="300" y="152" text-anchor="middle" fill="#00e5ff" font-family="Montserrat, Inter, sans-serif" font-size="44" font-weight="900" letter-spacing="4">? ? ?</text>
+  <text x="300" y="172" text-anchor="middle" fill="#8d8f97" font-family="Montserrat, Inter, sans-serif" font-size="9" font-weight="600" letter-spacing="2">TARGET LOCKED</text>
+
+  <!-- Proximity Range Scale -->
+  <g transform="translate(100, 215)">
+    <!-- Scale Track -->
+    <rect x="0" y="12" width="400" height="10" rx="5" fill="#17181c" stroke="#2b2c32"/>
+    <!-- Heat gradient fill in cyan style -->
+    <rect x="0" y="12" width="280" height="10" rx="5" fill="rgba(0, 229, 255, 0.3)"/>
+    <rect x="0" y="12" width="220" height="10" rx="5" fill="#00e5ff"/>
+    
+    <!-- Marker -->
+    <polygon points="220 5 226 12 214 12" fill="#00e5ff"/>
+    
+    <!-- Scale Numbers -->
+    <text x="0" y="38" fill="#8d8f97" font-family="Montserrat, Inter, sans-serif" font-size="10" font-weight="600">01</text>
+    <text x="100" y="38" fill="#8d8f97" font-family="Montserrat, Inter, sans-serif" font-size="10" font-weight="600">25</text>
+    <text x="200" y="38" fill="#00e5ff" font-family="Montserrat, Inter, sans-serif" font-size="10" font-weight="700">50</text>
+    <text x="300" y="38" fill="#8d8f97" font-family="Montserrat, Inter, sans-serif" font-size="10" font-weight="600">75</text>
+    <text x="400" y="38" text-anchor="end" fill="#8d8f97" font-family="Montserrat, Inter, sans-serif" font-size="10" font-weight="600">100</text>
+  </g>
+
+  <rect x="230" y="295" width="140" height="20" rx="3" fill="#17181c" stroke="#2b2c32"/>
+  <text x="300" y="309" text-anchor="middle" fill="#00e5ff" font-family="Montserrat, Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5">PROXIMITY RADAR</text>
+</svg>

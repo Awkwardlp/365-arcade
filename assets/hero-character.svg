@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 340" width="100%" height="100%">
+  <defs>
+    <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0f0f12" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Background Glow -->
+  <circle cx="170" cy="170" r="160" fill="url(#hubGlow)"/>
+
+  <!-- Tactical Concentric Rings -->
+  <circle cx="170" cy="170" r="150" fill="none" stroke="#2b2c32" stroke-width="1"/>
+  <circle cx="170" cy="170" r="130" fill="none" stroke="#2b2c32" stroke-width="1.5" stroke-dasharray="6 8"/>
+  <circle cx="170" cy="170" r="105" fill="none" stroke="rgba(0, 229, 255, 0.25)" stroke-width="1"/>
+  <circle cx="170" cy="170" r="80" fill="#17181c" stroke="#00d9f5" stroke-width="1.5"/>
+  <circle cx="170" cy="170" r="70" fill="rgba(0, 229, 255, 0.08)" stroke="#2b2c32" stroke-width="1"/>
+
+  <!-- Cardinal Axes -->
+  <line x1="170" y1="10" x2="170" y2="330" stroke="#2b2c32" stroke-width="1"/>
+  <line x1="10" y1="170" x2="330" y2="170" stroke="#2b2c32" stroke-width="1"/>
+  <line x1="170" y1="50" x2="170" y2="85" stroke="#00e5ff" stroke-width="2"/>
+  <line x1="170" y1="255" x2="170" y2="290" stroke="#00e5ff" stroke-width="2"/>
+  <line x1="50" y1="170" x2="85" y2="170" stroke="#00e5ff" stroke-width="2"/>
+  <line x1="255" y1="170" x2="290" y2="170" stroke="#00e5ff" stroke-width="2"/>
+
+  <!-- Center Core Glyph (Controller / Arcade Diamond) -->
+  <polygon points="170 125 205 170 170 215 135 170" fill="rgba(0, 229, 255, 0.15)" stroke="#00e5ff" stroke-width="2"/>
+  <circle cx="170" cy="170" r="6" fill="#00e5ff"/>
+
+  <!-- Orbiting Nodes -->
+  <circle cx="170" cy="40" r="4" fill="#00e5ff"/>
+  <circle cx="300" cy="170" r="4" fill="#00e5ff"/>
+  <circle cx="170" cy="300" r="4" fill="#00e5ff"/>
+  <circle cx="40" cy="170" r="4" fill="#00e5ff"/>
+
+  <circle cx="260" cy="80" r="3" fill="#8d8f97"/>
+  <circle cx="80" cy="260" r="3" fill="#8d8f97"/>
+  <circle cx="260" cy="260" r="3" fill="#8d8f97"/>
+  <circle cx="80" cy="80" r="3" fill="#8d8f97"/>
+
+  <!-- Radar Sweep Arm -->
+  <line x1="170" y1="170" x2="275" y2="65" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="275" cy="65" r="3" fill="#00e5ff"/>
+
+  <!-- Tactical Text Annotations -->
+  <text x="170" y="112" text-anchor="middle" fill="#00e5ff" font-family="Montserrat, Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="2">365-CORE</text>
+  <text x="170" y="235" text-anchor="middle" fill="#8d8f97" font-family="Montserrat, Inter, sans-serif" font-size="8" font-weight="600" letter-spacing="1.5">TELEMETRY ONLINE</text>
+</svg>

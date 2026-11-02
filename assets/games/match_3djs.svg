@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="match_bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="50%" stop-color="#1F2937"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <filter id="cube_glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="600" height="340" fill="url(#match_bg)"/>
+  <!-- Floating Colorful 3D Isometric Match-3 Cubes -->
+  <!-- Cube 1: Electric Cyan (Center) -->
+  <g transform="translate(300, 140)" filter="url(#cube_glow)">
+    <polygon points="0,-45 45,-20 0,5 -45,-20" fill="#38BDF8"/>
+    <polygon points="-45,-20 0,5 0,55 -45,30" fill="#0284C7"/>
+    <polygon points="0,5 45,-20 45,30 0,55" fill="#0369A1"/>
+  </g>
+  <!-- Cube 2: Neon Purple (Left) -->
+  <g transform="translate(210, 160)">
+    <polygon points="0,-35 35,-15 0,5 -35,-15" fill="#C084FC"/>
+    <polygon points="-35,-15 0,5 0,45 -35,25" fill="#9333EA"/>
+    <polygon points="0,5 35,-15 35,25 0,45" fill="#7E22CE"/>
+  </g>
+  <!-- Cube 3: Emerald Green (Right) -->
+  <g transform="translate(390, 160)">
+    <polygon points="0,-35 35,-15 0,5 -35,-15" fill="#4ADE80"/>
+    <polygon points="-35,-15 0,5 0,45 -35,25" fill="#16A34A"/>
+    <polygon points="0,5 35,-15 35,25 0,45" fill="#15803D"/>
+  </g>
+  <!-- Cube 4: Gold Amber (Top) -->
+  <g transform="translate(300, 75)">
+    <polygon points="0,-30 30,-12 0,5 -30,-12" fill="#FBBF24"/>
+    <polygon points="-30,-12 0,5 0,40 -30,22" fill="#D97706"/>
+    <polygon points="0,5 30,-12 30,22 0,40" fill="#B45309"/>
+  </g>
+  <!-- Rotation arrow orbital track -->
+  <ellipse cx="300" cy="155" rx="150" ry="70" fill="none" stroke="#7C3AED" stroke-width="1.5" stroke-dasharray="6,6" opacity="0.5"/>
+  <!-- Label -->
+  <text x="300" y="285" font-family="'Oxanium', sans-serif" font-size="16" font-weight="700" fill="#F3F4F6" text-anchor="middle" letter-spacing="4">MATCH-3DJS PUZZLE</text>
+  <text x="300" y="308" font-family="'Oxanium', sans-serif" font-size="11" font-weight="600" fill="#38BDF8" text-anchor="middle" letter-spacing="2">3D SPATIAL CUBE MANIPULATION</text>
+</svg>
